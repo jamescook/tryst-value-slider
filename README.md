@@ -1,10 +1,10 @@
 # tryst-value-slider
 
-A single-thumb value slider for [tryst](../), Crystal's Tcl/Tk binding —
+A single-thumb value slider for [tryst](https://github.com/jamescook/tryst), Crystal's Tcl/Tk binding —
 a rounded track with a filled portion, an antialiased thumb, optional
 tick marks with min/max labels, and a value bubble that tracks the
 thumb while dragging or keyboard-adjusting. Built on
-`Tryst::OwnerDrawnWidget` and rendered through [tryst-vector](../tryst-vector/).
+`Tryst::OwnerDrawnWidget` and rendered through [tryst-vector](https://github.com/jamescook/tryst-vector).
 
 ```crystal
 require "tryst"
@@ -54,17 +54,12 @@ aqua/clam/vista rather than a hardcoded color.
 ## Requirements
 
 Whatever tryst and tryst-vector need - Crystal >= 1.21.0, Tcl/Tk 8.6,
-and ThorVG >= 1.0 (see [tryst-vector's own README](../tryst-vector/) for
+and ThorVG >= 1.0 (see [tryst-vector's own README](https://github.com/jamescook/tryst-vector) for
 per-platform package names and why).
 
 ## Examples
 
-Run this **from this directory**, not the repo root — same reason as
-tryst-vector's own examples (`require "tryst"` resolves against the
-`lib/` of wherever crystal runs).
-
 ```
-cd tryst-value-slider
 crystal run examples/value_slider_demo.cr
 ```
 
@@ -76,7 +71,7 @@ crystal spec                    # host
 scripts/docker-test.sh          # Debian forky, same suite
 ```
 
-`scripts/docker-test.sh` builds from the repo root rather than this
-directory, because the `path: ../` dependencies on tryst and
-tryst-vector have to be inside the build context; it takes the same
-arguments `crystal spec` does, so a focused run works there too.
+`scripts/docker-test.sh` builds from this repo's own root; `shards
+install` inside the image fetches tryst and tryst-vector directly via
+their `github:` dependencies. It takes the same arguments `crystal
+spec` does, so a focused run works there too.
